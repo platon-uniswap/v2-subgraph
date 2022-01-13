@@ -114,7 +114,7 @@ type LiquidityPosition @entity {
 type LiquidityPositionSnapshot @entity {
   id: ID!
   liquidityPosition: LiquidityPosition!
-  timestamp: Int! # saved for fast historical lookups
+  timestamp: BigInt! # saved for fast historical lookups
   block: Int! # saved for fast historical lookups
   user: User! # reference to user
   pair: Pair! # reference to pair
@@ -219,7 +219,7 @@ type Bundle @entity {
 # Data accumulated and condensed into day stats for all of Uniswap
 type UniswapDayData @entity {
   id: ID! # timestamp rounded to current day by dividing by 86400
-  date: Int!
+  date: BigInt!
 
   dailyVolumeETH: BigDecimal!
   dailyVolumeUSD: BigDecimal!
@@ -235,7 +235,7 @@ type UniswapDayData @entity {
 
 type PairHourData @entity {
   id: ID!
-  hourStartUnix: Int! # unix timestamp for start of hour
+  hourStartUnix: BigInt! # unix timestamp for start of hour
   pair: Pair!
 
   # reserves
@@ -258,7 +258,7 @@ type PairHourData @entity {
 # Data accumulated and condensed into day stats for each exchange
 type PairDayData @entity {
   id: ID!
-  date: Int!
+  date: BigInt!
   pairAddress: Bytes!
   token0: Token!
   token1: Token!
@@ -282,7 +282,7 @@ type PairDayData @entity {
 
 type TokenDayData @entity {
   id: ID!
-  date: Int!
+  date: BigInt!
   token: Token!
 
   # volume stats

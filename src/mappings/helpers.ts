@@ -8,7 +8,7 @@ import { Factory as FactoryContract } from '../types/templates/Pair/Factory'
 import { TokenDefinition } from './tokenDefinition'
 
 export const ADDRESS_ZERO = '0x0000000000000000000000000000000000000000'
-export const FACTORY_ADDRESS = '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f'
+export const FACTORY_ADDRESS = '0x154b2f6202a5033cb150931177b86a2b03e485df'
 
 export let ZERO_BI = BigInt.fromI32(0)
 export let ONE_BI = BigInt.fromI32(1)
@@ -170,7 +170,7 @@ export function createUser(address: Address): void {
 }
 
 export function createLiquiditySnapshot(position: LiquidityPosition, event: EthereumEvent): void {
-  let timestamp = event.block.timestamp.toI32()
+  let timestamp = event.block.timestamp
   let bundle = Bundle.load('1')
   let pair = Pair.load(position.pair)
   let token0 = Token.load(pair.token0)
